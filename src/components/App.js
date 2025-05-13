@@ -56,7 +56,7 @@ const App = () => {
             {items.map((item,index) => (
               <tr key={index}>
                 <td>{item.name}</td>
-                <td style={{color: item.price > budget ? "rgb(0, 128, 0)" : 'rgb(255, 0, 0)'}} >{item.price}</td>
+                <td style={{color: budget >= 50 && item.price > budget ? "rgb(0, 128, 0)" : "rgb(255, 0, 0)"}} >{item.price}</td>
               </tr>
             ))}
           </tbody>
