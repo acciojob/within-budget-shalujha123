@@ -46,11 +46,17 @@ const App = () => {
         <input type="number" value={budget} min="0" max="100" onChange={handleBudget} />
         <h2>Items you can buy are in green color</h2>
         <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+            </tr>
+          </thead>
           <tbody>
             {items.map((item,index) => (
               <tr key={index}>
                 <td>{item.name}</td>
-                <td style={{color: item.price <= budget ? "green" : "red"}} >{item.price}</td>
+                <td style={{color: item.price <= budget ? "rgb(0, 128, 0)" : 'rgb(255, 0, 0)'}} >{item.price}</td>
               </tr>
             ))}
           </tbody>
