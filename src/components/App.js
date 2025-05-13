@@ -33,7 +33,7 @@ const items = [
   }
 ]
 const App = () => {
-  const [budget,setBudget] = useState()
+  const [budget,setBudget] = useState(0)
 
   const handleBudget = (e) => {
     setBudget(Number(e.target.value))
@@ -44,15 +44,17 @@ const App = () => {
         {/* Do not remove the main div */}
         <h2>Enter your budget to check available items:</h2>
         <input type="number" value={budget} min="0" max="100" onChange={handleBudget} />
-        <h2>Items you can buy are in green colors</h2>
-        <div>
-           {items.map((item,index) => (
-            <div key={index} style={{display: "flex", alignItems:"center", gap: "30px"}}>
-              <p>{item.name}</p>
-              <p style={{color: item.price <= budget ? "green" : "red" }}>{item.price}</p>
-            </div>
-           ))}          
-        </div>
+        <h2>Items you can buy are in green color</h2>
+        <table>
+          <tbody>
+            {items.map((item,index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td style={{color: item.price <= budget ? "green" : "red"}} >{item.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
     </div>
   )
 }
